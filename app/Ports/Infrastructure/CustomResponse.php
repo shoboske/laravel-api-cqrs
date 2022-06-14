@@ -18,14 +18,12 @@ class CustomResponse
 
     public static function Ok($message, $data = null)
     {
-        $result = new self($message, false, $data);
-        return $result->toArray();
+        return (new self($message, false, $data))->toArray();
     }
 
     public static function Fail(string $message)
     {
-        $result = new self($message, true);
-        return $result->toArray();
+        return (new self($message, true))->toArray();
     }
 
     private function toArray()
@@ -34,9 +32,8 @@ class CustomResponse
             'message' => $this->message,
             'error' => $this->error,
         ]);
-
         if ($this->data != null) {
-            $result->data = $this->data;
+            $result->put('data', $this->data);
         }
         return $result;
     }
