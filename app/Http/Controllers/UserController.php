@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Interfaces\IUserRepository;
 use App\Ports\Queries\GetAllUsersQuery;
 use App\Ports\Queries\GetUserByIdQuery;
-use Illuminate\Http\Request;
 
 class UserController extends Controller
 {

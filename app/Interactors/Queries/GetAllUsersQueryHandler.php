@@ -3,8 +3,8 @@
 namespace App\Interactors\Queries;
 
 use App\Interfaces\IUserRepository;
-use App\Ports\Infrastructure\CustomResponse;
 use App\Ports\Queries\GetAllUsersQuery;
+use App\Ports\Infrastructure\CustomResponse;
 
 class GetAllUsersQueryHandler
 {
@@ -18,6 +18,9 @@ class GetAllUsersQueryHandler
     {
         $users = $this::$repository->getAll();
 
-        return CustomResponse::Ok($users->count() < 1 ? 'NoUsersExist' : 'UsersFetchedSuccessFully', $users);
+        return CustomResponse::Ok(
+            $users->count() < 1 ? 'NoUsersExist' : 'UsersFetchedSuccessFully',
+            $users
+        );
     }
 }

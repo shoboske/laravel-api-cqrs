@@ -2,12 +2,12 @@
 
 namespace Tests\Unit\Queries;
 
-use App\Interactors\Queries\GetAllUsersQueryHandler;
-use App\Interfaces\IUserRepository;
+use Tests\TestCase;
 use App\Models\User;
+use App\Interfaces\IUserRepository;
 use App\Ports\Queries\GetAllUsersQuery;
 use PHPUnit\Framework\MockObject\MockObject;
-use Tests\TestCase;
+use App\Interactors\Queries\GetAllUsersQueryHandler;
 
 class GetAllUsersQueryHandlerTest extends TestCase
 {
