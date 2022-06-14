@@ -2,9 +2,10 @@
 
 namespace App\Interactors\Queries;
 
+use App\Dtos\Users\UserDto;
 use App\Interfaces\IUserRepository;
-use App\Ports\Infrastructure\CustomResponse;
 use App\Ports\Queries\GetUserByIdQuery;
+use App\Ports\Infrastructure\CustomResponse;
 
 class GetUserByIdQueryHandler
 {
@@ -20,6 +21,6 @@ class GetUserByIdQueryHandler
         if ($user == null) {
             return CustomResponse::Fail('UserNotFound');
         }
-        return CustomResponse::Ok('UserFetchedSuccessfully', $user);
+        return CustomResponse::Ok('UserFetchedSuccessfully',  new UserDto($user));
     }
 }
